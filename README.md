@@ -10,3 +10,5 @@ resource_type: "image": This explicitly specifies that the file being uploaded i
 resource_type: "video": This specifies that the file is a video.
 resource_type: "raw": This is used for other file types that are not images or videos, such as text files, PDFs, etc.
 resource_type: "auto": This allows Cloudinary to automatically detect the file type and handle it accordingly.
+================>
+We need to connect the image on cloudinary for upload the image
