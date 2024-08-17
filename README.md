@@ -129,3 +129,25 @@ app.listen(PORT, () => {
 });
 Summary
 The retryOptions object provides a flexible way to configure retry logic for uploading an image to Cloudinary. It specifies how many times to retry, the exponential backoff strategy, and what to do when a retry attempt fails, making the upload process more robust against temporary failures.
+======================>
+for destroy the image we need to split this ->
+how to split this from full url
+ChatGPT said:
+ChatGPT
+To split the public_id from the full Cloudinary URL, you can use JavaScript string manipulation methods like split() or regular expressions. Here's how you can do it:
+
+Method 1: Using split() Method
+You can split the URL by the parts of the path that are common and then extract the relevant segment:
+
+javascript
+Copy code
+const url = 'https://res.cloudinary.com/dnbebrffp/image/upload/v1723821373/CodeHelp/i85msu622yqiudaoe9um.jpg';
+
+// Split the URL by 'image/upload/' and then remove the version and file extension
+const publicId = url.split('image/upload/')[1].split('.')[0].replace(/\/v[0-9]+/, '');
+
+console.log(publicId); // Output: CodeHelp/i85msu622yqiudaoe9um
+Explanation:
+split('image/upload/') splits the URL into two parts: before and after image/upload/.
+split('.')[0] removes the file extension by splitting at the dot (.) and taking the first part.
+replace(/\/v[0-9]+/, '') removes the version part (/v1723821373) from the string.
